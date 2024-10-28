@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnhi4d15kl1ae"]
+
+[ext_resource type="Script" path="res://Scripts/validation_alert.gd" id="1_j2op2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qetsq"]
+
+[node name="ValidationAlert" type="Panel"]
+visible = false
+custom_minimum_size = Vector2(200, 45)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 28.0
+offset_right = 101.0
+offset_bottom = 73.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qetsq")
+script = ExtResource("1_j2op2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Not Enough Letters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
